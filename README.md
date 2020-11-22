@@ -1,9 +1,10 @@
 # tensorRT_Wheels
-tensorrt  wheels (API)
-Current wheels(API):
-1.input
-2.conv
-3.pool
+
+tensorrt  wheels (API) 
+Current wheels(API): 
+1.input 
+2.conv 
+3.pool 
 4.batchNorm
 5.activation(relu/sigmoid/tanh/leaky_relu/elu/selu/softsign/softplus/clip/hard_sigmoid/scaled_tanh/thresholded_relu)
 6.FC( == linear)
