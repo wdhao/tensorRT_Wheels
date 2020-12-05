@@ -282,7 +282,7 @@ ITensor* trtAPI::trt_upsample(INetworkDefinition *network, ITensor *input, Resiz
     IResizeLayer *upSample = network->addResize(*input);
     upSample->setResizeMode(mode);
     upSample->setOutputDimensions(outdims);
-<<<<<<< HEAD
+
     if(mode == ResizeMode::kNEAREST)
     {
         upSample->setAlignCorners(false); // tips!
@@ -290,9 +290,7 @@ ITensor* trtAPI::trt_upsample(INetworkDefinition *network, ITensor *input, Resiz
     else {
         upSample->setAlignCorners(true); // tips!
     }
-=======
-    upSample->setAlignCorners(true); // tips!
->>>>>>> 02e7460caefd01e997b4d5d7ca45657173cf3025
+
     return upSample->getOutput(0);
 }
 ITensor* trtAPI::trt_constant(INetworkDefinition *network, Dims dims, vector<float> wgt)
