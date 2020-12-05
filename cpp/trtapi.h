@@ -42,6 +42,7 @@ public:
 
     ITensor* trt_PReLU(INetworkDefinition* network, ITensor* input,vector<float> wgt);
     ITensor* trt_groupNorm(INetworkDefinition* network,ITensor* input, int groups,vector<float> wgt,vector<float> bias,float eps = 1e-5);
+	ITensor* trt_padding(INetworkDefinition* network,ITensor* input,DimsHW prePad = DimsHW{0,0},DimsHW postPad = DimsHW{0,0});
 
 
 };

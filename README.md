@@ -21,3 +21,4 @@ Current wheels(API):
 18.constant  ("The most important layer!!!")
 19.PReLU
 20.groupNorm
+21.padding

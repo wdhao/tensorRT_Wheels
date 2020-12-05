@@ -282,7 +282,13 @@ ITensor* trtAPI::trt_upsample(INetworkDefinition *network, ITensor *input, Resiz
     IResizeLayer *upSample = network->addResize(*input);
     upSample->setResizeMode(mode);
     upSample->setOutputDimensions(outdims);
-    upSample->setAlignCorners(false); // tips!
+    if(mode == ResizeMode::kNEAREST)
+    {
+        upSample->setAlignCorners(false); // tips!
+    }
+    else {
+        upSample->setAlignCorners(true); // tips!
+    }
     return upSample->getOutput(0);
 }
 ITensor* trtAPI::trt_constant(INetworkDefinition *network, Dims dims, vector<float> wgt)
@@ -380,5 +386,10 @@ ITensor* trtAPI::trt_groupNorm(INetworkDefinition *network, ITensor *input, int 
                                                                       ElementWiseOperation::kSUM);//x * scale + bias
     return sum_bias->getOutput(0);
 
+}
+ITensor* trtAPI::trt_padding(INetworkDefinition *network, ITensor *input, DimsHW prePad, DimsHW postPad)
+{
+    IPaddingLayer *pad = network->addPaddingNd(*input,prePad,postPad);
+    return pad->getOutput(0);
 }
 
